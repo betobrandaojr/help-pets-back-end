@@ -47,6 +47,9 @@ Após executar a aplicação, você pode acessar a documentação Swagger pelo e
 
 [Swagger UI](http://localhost:8090/help-pets/swagger-ui/index.html#/)
 
+![image](https://github.com/betobrandaojr/help-pets/assets/59041231/2cbc5f98-2c54-4d68-92ed-78113c9f1bb2)
+
+
 ## 🌟 Contribuição
 
 Este projeto é uma ferramenta open source. Quem tiver interesse em ajudar, fique à vontade para contribuir!
