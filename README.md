@@ -16,8 +16,9 @@ O projeto possui uma pasta `docker` na raiz, onde você pode localizar o arquivo
 
 Para executar o container, você precisa ter o Docker Desktop instalado em seu PC. Siga os passos abaixo:
 
-1. Navegue até a pasta `docker`.
-2. Execute o comando:
+1. [Baixe e instale o Docker Desktop](https://www.docker.com/products/docker-desktop).
+2. Navegue até a pasta `docker`.
+3. Execute o comando:
 
    ```sh
    docker-compose up -d
