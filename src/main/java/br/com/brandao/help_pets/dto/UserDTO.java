@@ -29,4 +29,7 @@ public class UserDTO {
     private String adress;
     private String contact;
     private String document;
+
+    @NotNull(message = "Status is mandatory")
+    private boolean status;
 }

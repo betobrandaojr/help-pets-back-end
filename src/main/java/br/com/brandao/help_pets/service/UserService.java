@@ -37,23 +37,23 @@ public class UserService {
                 .orElse(null);
 
         if (pageable == null) {
-            List<User> users = userRepository.findAll();
+            List<User> users = this.userRepository.findAll();
             List<UserDTO> userDTOs = users.stream().map(this::convertToDto).collect(Collectors.toList());
             return new PageImpl<>(userDTOs);
         } else {
-            Page<User> page = userRepository.findAll(pageable);
+            Page<User> page = this.userRepository.findAll(pageable);
             return page.map(this::convertToDto);
         }
     }
 
     public User findById(UUID id) {
-        return userRepository.findById(id)
+        return this.userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("Este usuário não existe"));
     }
 
     public User save(UserDTO userDTO) {
         validateEmail(userDTO.getEmail());
-        if (userRepository.findByEmail(userDTO.getEmail()).isPresent()) {
+        if (this.userRepository.findByEmail(userDTO.getEmail()).isPresent()) {
             throw new UserAlreadyExistsException("Usuário já cadastrado com este email");
         }
 
@@ -64,7 +64,8 @@ public class UserService {
         user.setAdress(userDTO.getAdress());
         user.setContact(userDTO.getContact());
         user.setDocument(userDTO.getDocument());
-        return userRepository.save(user);
+        user.setStatus(userDTO.isStatus());
+        return this.userRepository.save(user);
     }
 
     public User update(UUID id, UserDTO userDTO) {
@@ -76,12 +77,13 @@ public class UserService {
         existingUser.setAdress(userDTO.getAdress());
         existingUser.setContact(userDTO.getContact());
         existingUser.setDocument(userDTO.getDocument());
-        return userRepository.save(existingUser);
+        existingUser.setStatus(userDTO.isStatus());
+        return this.userRepository.save(existingUser);
     }
 
     public void deleteById(UUID id) {
         findById(id); // Verifica se o usuário existe antes de tentar deletar
-        userRepository.deleteById(id);
+        this.userRepository.deleteById(id);
     }
 
     private void validateEmail(String email) {
@@ -97,7 +99,8 @@ public class UserService {
                 user.getPassword(),
                 user.getAdress(),
                 user.getContact(),
-                user.getDocument()
+                user.getDocument(),
+                user.isStatus()
         );
     }
 }
