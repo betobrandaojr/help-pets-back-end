@@ -4,31 +4,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class RefugeDTO {
 
     @NotNull(message = "Name is mandatory")
     @NotEmpty(message = "Name is mandatory")
-    private String name;
+    private  String name;
 
-    @NotNull(message = "Email is mandatory")
-    @NotEmpty(message = "Email is mandatory")
-    @Email(message = "Email should be valid")
-    private String email;
-
-    @NotNull(message = "Password is mandatory")
-    @NotEmpty(message = "Password is mandatory")
-    private String password;
-
+    @NotNull(message = "Adress is mandatory")
+    @NotEmpty(message = "Adress is mandatory")
     private String adress;
+
+    @NotNull(message = "Contact is mandatory")
+    @NotEmpty(message = "Contact is mandatory")
     private String contact;
-    private String document;
 
     @NotNull(message = "Status is mandatory")
     private boolean status;
