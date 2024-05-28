@@ -15,7 +15,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("Help Pets API")
                         .description(
-                                "Aplicação destinada para auxiliar os abrigos de animais no RS após as fotes chuvas de 2024.")
+                                "Aplicação destinada para auxiliar os abrigos de animais no RS após as fortes chuvas de 2024.")
                         .version("1.0.0"));
     }
 }
