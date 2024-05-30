@@ -74,6 +74,6 @@ public class RefugeService {
                 refuge.getName(),
                 refuge.getAdress(),
                 refuge.getContact(),
-                refuge.isStatus());//Não sei se usar o isStatus da certo
+                refuge.isStatus());
     }
 }

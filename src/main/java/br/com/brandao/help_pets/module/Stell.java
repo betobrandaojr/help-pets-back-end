@@ -11,7 +11,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,17 +21,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "refuges")
-public class Refuge {
+public class Stell {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private  String name;
+    private Long number;
 
-    private String adress;
-
-    private String contact;
+    @ManyToOne
+    @JoinColumn(name = "refuge_id")
+    private Refuge refugId;
 
     private boolean status;
 
@@ -41,4 +42,5 @@ public class Refuge {
     @UpdateTimestamp
     @Column(name = "update_date")
     private LocalDateTime updateDate;
+
 }
