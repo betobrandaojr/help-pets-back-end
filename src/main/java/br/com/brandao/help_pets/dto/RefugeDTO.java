@@ -25,5 +25,5 @@ public class RefugeDTO {
     private String contact;
 
     @NotNull(message = "Status is mandatory")
-    private boolean status;
+    private boolean status = true;
 }
